@@ -126,7 +126,7 @@ def message_sort(message_list):
         message_list: a list containing the lines from the 
         "message_data.cyber.org.il" log file.
 
-    Eg. of a second word from the line '/python/logpuzzle/p-bccc-bbdc'
+    Eg of the 'second word' part of '/python/logpuzzle/p-bccc-bbdc'
     ---> bbdc
     """
     only_second_word = [
@@ -155,11 +155,23 @@ def read_urls(filename):
 
         if os.path.exists(filename):
 
-            # Running the 3 functions that are 
-            # necessary for both lists:
+            # Running the 3 common functions for both log files first:
+            # (list_from_file,regex_on_list,remove_list_duplicates)
             mylist = list_from_file(filename)
-            # Matches everything between "python" and "jpg".
+            
+            # This regex expression works on both log files.
+            # It matches the string "/python(everything in between).jpg"
+
+            # message_data sample:
+            # 10.254.254.65 - - [06/Aug/2007:00:06:07 -0700] "GET /python/logpuzzle/p-bbfh-baji.jpg HTTP/1.0" 302 18124 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6"
+            # logo_data sample:
+            # 10.254.254.29 - - [06/Aug/2007:00:09:22 -0700] "GET /python/logpuzzle/a-baai.jpg HTTP/1.0" 200 10496 "-" "facebookbot-mscrawl-moma (enterprise; bar-XYZ; foo123@facebook.com,foo123@facebook.com,foo123@facebook.com,foo123@facebook.com)"
+
+            # The regex respectively returns:        
+            # /python/logpuzzle/p-bbfh-baji.jpg
+            # /python/logpuzzle/a-baai.jpg
             mylist = regex_on_list(r"\/python.*(?=jpg)...",mylist)
+            
             mylist = remove_list_duplicates(mylist)
 
             if filename == "logo_data.cyber.org.il":
