@@ -71,20 +71,15 @@ def insert_string_at_index(s1=str,s2=str,index=int):
     """ 
     Returns s1 overrided with s2 at right of index.
 
-        Eg:
+        Eg input:
             s1 = 'aacc'
-
             s2 = 'BB'
-
             index = 1
-
         Output:
             'aBBc'
     Args:
         s1 = string to be overrided.
-
         s2 = string to override with.
-
         index = position in s1 to override from.
 
     Note:
@@ -93,17 +88,12 @@ def insert_string_at_index(s1=str,s2=str,index=int):
         for i, x in enumerate(list1):
             list1[i] = insert_string_at_index(x,list2[i],insertion_index)
         
-        Eg:
+        Eg input:
             list1 = ['aacc','xxzz']
-
             list2 = ['BB','YY']
-
             index = 1
-
         Output:
             list1 = ['aBBc','xYYz']
-
-
     """
     s1 = list(s1)
 
