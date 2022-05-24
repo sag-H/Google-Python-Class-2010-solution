@@ -176,17 +176,6 @@ def read_urls(filename):
 
         return mylist
 
-# Upload progress to github
-# Upload progress to github
-# Upload progress to github
-# Upload progress to github
-# Upload progress to github
-# Upload progress to github
-# Upload progress to github
-# Upload progress to github
-# Upload progress to github
-
-
 def download_images(img_urls, dest_dir):
   """Given the urls already in the correct order, download
   each image into the given directory.
